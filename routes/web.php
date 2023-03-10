@@ -24,3 +24,7 @@ Route::get('/resend/{email}', [App\Http\Controllers\ActivationController::class,
 Route::resource('/products', 'App\Http\Controllers\ProductController');
 Route::get('/products/category/{category}', [App\Http\Controllers\HomeController::class, 'GetProductByCategory'])->name('category.products');
 Route::get('/product/search', [App\Http\Controllers\HomeController::class, 'SearchProduct'])->name('products.search');
+
+Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index');
+Route::post('/add/cart/{product}', [App\Http\Controllers\CartController::class, 'addProductToCart'])->name('add.cart');
+Route::delete('/remove/{product}/cart', [App\Http\Controllers\CartController::class, 'removeProductFromCart'])->name('remove.cart');

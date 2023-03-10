@@ -46,7 +46,7 @@
                         </ul>
                         <hr />
                         <div class="d-flex flex-column flex-sm-row pt-1">
-                            <a href="javascript:void(0)" class="btn btn-primary btn-cart mr-0 mr-sm-1 mb-1 mb-sm-0">
+                            <a href=" {{ route('add.cart',$product->slug) }} " class="btn btn-primary btn-cart mr-0 mr-sm-1 mb-1 mb-sm-0">
                                 <i data-feather="shopping-cart" class="mr-50"></i>
                                 <span class="add-to-cart">Add to cart</span>
                             </a>
