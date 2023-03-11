@@ -45,33 +45,45 @@
                             <li><i data-feather="shopping-cart"></i> <span>Free Shipping</span></li>
                         </ul>
                         <hr />
-                        <div class="d-flex flex-column flex-sm-row pt-1">
-                            <a href=" {{ route('add.cart',$product->slug) }} " class="btn btn-primary btn-cart mr-0 mr-sm-1 mb-1 mb-sm-0">
-                                <i data-feather="shopping-cart" class="mr-50"></i>
-                                <span class="add-to-cart">Add to cart</span>
-                            </a>
-                            {{-- <a href="javascript:void(0)" class="btn btn-outline-secondary btn-wishlist mr-0 mr-sm-1 mb-1 mb-sm-0">
-                                <i data-feather="heart" class="mr-50"></i>
-                                <span>Wishlist</span>
-                            </a> --}}
-                            <div class="btn-group dropdown-icon-wrapper btn-share">
-
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="javascript:void(0)" class="dropdown-item">
-                                        <i data-feather="facebook"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" class="dropdown-item">
-                                        <i data-feather="twitter"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" class="dropdown-item">
-                                        <i data-feather="youtube"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" class="dropdown-item">
-                                        <i data-feather="instagram"></i>
-                                    </a>
+                        <form action="{{ route('add.cart',$product->slug) }} " method="get">
+                            @method('GET')
+                            @csrf
+                            <div class="item-quantity">
+                                <strong class="quantity-title">Qty:</strong>
+                                <div class="input-group quantity-counter-wrapper">
+                                  <input type="text" class="quantity-counter" name="quantity" value="1" />
                                 </div>
                             </div>
-                        </div>
+                            <hr />
+                            <div class="d-flex flex-column flex-sm-row pt-1">
+                                <button type="submit" class="btn btn-primary btn-cart mr-0 mr-sm-1 mb-1 mb-sm-0">
+                                    {{-- <i data-feather="shopping-cart" class="mr-50"></i> --}}
+                                    {{-- <span class="add-to-cart">Add to cart</span> --}}
+                                    <span class="btn btn-primary">Add to cart</span>
+                                </button>
+                                {{-- <a href="javascript:void(0)" class="btn btn-outline-secondary btn-wishlist mr-0 mr-sm-1 mb-1 mb-sm-0">
+                                    <i data-feather="heart" class="mr-50"></i>
+                                    <span>Wishlist</span>
+                                </a> --}}
+                                {{-- <div class="btn-group dropdown-icon-wrapper btn-share">
+    
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a href="javascript:void(0)" class="dropdown-item">
+                                            <i data-feather="facebook"></i>
+                                        </a>
+                                        <a href="javascript:void(0)" class="dropdown-item">
+                                            <i data-feather="twitter"></i>
+                                        </a>
+                                        <a href="javascript:void(0)" class="dropdown-item">
+                                            <i data-feather="youtube"></i>
+                                        </a>
+                                        <a href="javascript:void(0)" class="dropdown-item">
+                                            <i data-feather="instagram"></i>
+                                        </a>
+                                    </div>
+                                </div> --}}
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -235,9 +247,11 @@
 <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/extensions/swiper.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/pages/app-ecommerce-details.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/plugins/forms/form-number-input.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/plugins/forms/form-number-input.min.css')}}">
 @endsection
 @section('script')
 <script src="{{asset('app-assets/vendors/js/extensions/swiper.min.js')}}"></script>
 <script src="{{asset('app-assets/js/scripts/pages/app-ecommerce-details.js')}}"></script>
 <script src="{{asset('app-assets/js/scripts/forms/form-number-input.js')}}"></script>
+<script src="{{asset('app-assets/js/scripts/pages/app-ecommerce-checkout.min.js')}}"></script>
 @endsection

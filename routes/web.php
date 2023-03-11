@@ -17,14 +17,18 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+//active user account routes
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/activate/{code}', [App\Http\Controllers\ActivationController::class, 'activateUserAccount'])->name('user.activate');
 Route::get('/resend/{email}', [App\Http\Controllers\ActivationController::class, 'resendActivationCode'])->name('code.resend');
 
+//product routes
 Route::resource('/products', 'App\Http\Controllers\ProductController');
 Route::get('/products/category/{category}', [App\Http\Controllers\HomeController::class, 'GetProductByCategory'])->name('category.products');
 Route::get('/product/search', [App\Http\Controllers\HomeController::class, 'SearchProduct'])->name('products.search');
 
+//cart routes
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index');
-Route::post('/add/cart/{product}', [App\Http\Controllers\CartController::class, 'addProductToCart'])->name('add.cart');
+Route::get('/add/cart/{product}', [App\Http\Controllers\CartController::class, 'addProductToCart'])->name('add.cart');
+Route::put('/update/cart/{product}', [App\Http\Controllers\CartController::class, 'updateProductOnCart'])->name('update.cart');
 Route::delete('/remove/{product}/cart', [App\Http\Controllers\CartController::class, 'removeProductFromCart'])->name('remove.cart');

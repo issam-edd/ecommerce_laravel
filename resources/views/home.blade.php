@@ -55,7 +55,7 @@
                 {{ $product->description }}
             </p>
         </div>
-        <div class="item-options text-center">
+        {{-- <div class="item-options text-center">
             <div class="item-wrapper">
                 <div class="item-cost">
                     <h4 class="item-price">{{ $product->price }} DH</h4>
@@ -65,7 +65,7 @@
                 <i data-feather="shopping-cart"></i>
                 <span class="add-to-cart">Add to cart</span>
             </a>
-        </div>
+        </div> --}}
     </div>
     @empty
     <p>There is no such Item !</p>

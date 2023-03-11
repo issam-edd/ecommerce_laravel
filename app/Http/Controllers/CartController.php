@@ -16,16 +16,28 @@ class CartController extends Controller
     }
 
     //add item to cart
-    public function addProductToCart(Product $product)
+    public function addProductToCart(Request $request, Product $product)
     {
         \Cart::add(array(
             "id" => $product->id,
             "name" => $product->title,
             "price" => $product->price,
+            "quantity" => $request->quantity,
             "attributes" => array(),
             "associatedModel" => $product,
         ));
         return redirect()->route('cart.index');
+    }
+    //update item on cart
+    public function updateProductOnCart(Request $request, Product $product)
+    {
+        \Cart::update($product->id, array(
+            'quantity' => array(
+                'relative' => false,
+                'value' => $request->quantity
+            ),
+        ));
+        return redirect()->route("cart.index");
     }
     //remove item from cart
     public function removeProductFromCart(Request $request, Product $product)

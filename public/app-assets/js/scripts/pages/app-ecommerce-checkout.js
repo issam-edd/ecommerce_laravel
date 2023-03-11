@@ -12,7 +12,7 @@ $(function () {
 
   var quantityCounter = $('.quantity-counter'),
     CounterMin = 1,
-    CounterMax = 10,
+    CounterMax = 100,
     bsStepper = document.querySelectorAll('.bs-stepper'),
     checkoutWizard = document.querySelector('.checkout-tab-steps'),
     removeItem = $('.remove-wishlist'),
@@ -109,7 +109,7 @@ $(function () {
       .on('touchspin.on.startupspin', function () {
         var $this = $(this);
         $('.bootstrap-touchspin-down').removeClass('disabled-max-min');
-        if ($this.val() == 10) {
+        if ($this.val() == 100) {
           $(this).siblings().find('.bootstrap-touchspin-up').addClass('disabled-max-min');
         }
       });
