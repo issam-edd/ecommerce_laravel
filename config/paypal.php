@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PayPal Setting & API Credentials
  * Created by Raza Mehdi <srmk@outlook.com>.
@@ -7,9 +8,9 @@
 return [
     'mode'    => env('PAYPAL_MODE', 'sandbox'), // Can only be 'sandbox' Or 'live'. If empty or invalid, 'live' will be used.
     'sandbox' => [
-        'username'    => env('PAYPAL_SANDBOX_API_USERNAME', ''),
-        'password'    => env('PAYPAL_SANDBOX_API_PASSWORD', ''),
-        'secret'      => env('PAYPAL_SANDBOX_API_SECRET', ''),
+        'username'    => env('PAYPAL_SANDBOX_API_USERNAME', 'sb-x1ovl25266949_api1.business.example.com'),
+        'password'    => env('PAYPAL_SANDBOX_API_PASSWORD', '62CA5CPGN7FAYAY4'),
+        'secret'      => env('PAYPAL_SANDBOX_API_SECRET', 'AHJCyNvZaRRfnLm4MJgVnKejq7mzAbwhPLwBkwPxL0pYAza0VVCkY-Ce'),
         'certificate' => env('PAYPAL_SANDBOX_API_CERTIFICATE', ''),
         'app_id'      => 'APP-80W284485P519543T', // Used for testing Adaptive Payments API in sandbox mode
     ],

@@ -29,6 +29,7 @@
                 </span>
                 </button>
             </div>
+            @Auth
             <div class="line">
                 <i data-feather="chevron-right" class="font-medium-2"></i>
             </div>
@@ -57,9 +58,11 @@
                 </span>
                 </button>
             </div>
+            @endAuth
             </div>
             <!-- Wizard ends -->
-  
+
+    @include('layouts.partials.alerts')
     <div class="bs-stepper-content">
       <!-- Checkout Place order starts -->
       <div id="step-cart" class="content">
@@ -169,7 +172,11 @@
                       <div class="detail-amt font-weight-bolder">{{ Cart::getSubtotal() }} DH</div>
                     </li>
                   </ul>
+                  @if(auth()->user())
                   <button type="button" class="btn btn-primary btn-block btn-next place-order">Place Order</button>
+                  @else
+                  <a href="{{ route('login') }}" class="btn btn-primary btn-block">Place Order</a>
+                  @endif
                 </div>
               </div>
             </div>
@@ -179,8 +186,10 @@
         <!-- Checkout Place order Ends -->
       </div>
       <!-- Checkout Customer Address Starts -->
+      @Auth
       <div id="step-address" class="content">
-        <form id="checkout-address" class="list-view product-checkout">
+        <form method="POST" action="{{ route('user.update',auth()->id())}}" id="checkout-address" class="list-view product-checkout">
+          @csrf
           <!-- Checkout Customer Address Left starts -->
           <div class="card">
             <div class="card-header flex-column align-items-start">
@@ -192,10 +201,10 @@
                 <div class="col-md-6 col-sm-12">
                   <div class="form-group mb-2">
                     <label for="checkout-name">Full Name:</label>
-                    <input type="text" id="checkout-name" class="form-control" name="fname" placeholder="John Doe" />
+                    <input type="text" id="checkout-name" class="form-control" name="name" value="{{auth()->user()->name}}"  />
                   </div>
                 </div>
-                <div class="col-md-6 col-sm-12">
+                {{-- <div class="col-md-6 col-sm-12">
                   <div class="form-group mb-2">
                     <label for="checkout-number">Mobile Number:</label>
                     <input
@@ -206,60 +215,27 @@
                       placeholder="0123456789"
                     />
                   </div>
-                </div>
+                </div> --}}
                 <div class="col-md-6 col-sm-12">
                   <div class="form-group mb-2">
-                    <label for="checkout-apt-number">Flat, House No:</label>
-                    <input
-                      type="number"
-                      id="checkout-apt-number"
-                      class="form-control"
-                      name="apt-number"
-                      placeholder="9447 Glen Eagles Drive"
-                    />
-                  </div>
-                </div>
-                <div class="col-md-6 col-sm-12">
-                  <div class="form-group mb-2">
-                    <label for="checkout-landmark">Landmark e.g. near apollo hospital:</label>
-                    <input
-                      type="text"
-                      id="checkout-landmark"
-                      class="form-control"
-                      name="landmark"
-                      placeholder="Near Apollo Hospital"
-                    />
+                    <label for="checkout-city">Address</label>
+                    <input type="text" id="checkout-city" class="form-control" name="address" value="{{auth()->user()->address}}" />
                   </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                   <div class="form-group mb-2">
                     <label for="checkout-city">Town/City:</label>
-                    <input type="text" id="checkout-city" class="form-control" name="city" placeholder="Tokyo" />
+                    <input type="text" id="checkout-city" class="form-control" name="city" value="{{auth()->user()->city}}"  />
                   </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                   <div class="form-group mb-2">
-                    <label for="checkout-pincode">Pincode:</label>
-                    <input type="number" id="checkout-pincode" class="form-control" name="pincode" placeholder="201301" />
-                  </div>
-                </div>
-                <div class="col-md-6 col-sm-12">
-                  <div class="form-group mb-2">
-                    <label for="checkout-state">State:</label>
-                    <input type="text" id="checkout-state" class="form-control" name="state" placeholder="California" />
-                  </div>
-                </div>
-                <div class="col-md-6 col-sm-12">
-                  <div class="form-group mb-2">
-                    <label for="add-type">Address Type:</label>
-                    <select class="form-control" id="add-type">
-                      <option>Home</option>
-                      <option>Work</option>
-                    </select>
+                    <label for="checkout-state">Country</label>
+                    <input type="text" id="checkout-state" class="form-control" name="country" value="{{auth()->user()->country}}" />
                   </div>
                 </div>
                 <div class="col-12">
-                  <button type="button" class="btn btn-primary btn-next delivery-address">Save And Deliver Here</button>
+                  <button type="submit" class="btn btn-primary">Save And Deliver Here</button>
                 </div>
               </div>
             </div>
@@ -270,13 +246,13 @@
           <div class="customer-card">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title">John Doe</h4>
+                <h4 class="card-title">{{auth()->user()->name}}</h4>
               </div>
               <div class="card-body actions">
-                <p class="card-text mb-0">9447 Glen Eagles Drive</p>
-                <p class="card-text">Lewis Center, OH 43035</p>
-                <p class="card-text">UTC-5: Eastern Standard Time (EST)</p>
-                <p class="card-text">202-555-0140</p>
+                <p class="card-text mb-t">{{auth()->user()->email}}</p>
+                <p class="card-text mb-0">{{auth()->user()->address}}</p>
+                <p class="card-text mb-0">{{auth()->user()->city}}</p>
+                <p class="card-text mb-0">{{auth()->user()->country}}</p>
                 <button type="button" class="btn btn-primary btn-block btn-next delivery-address mt-2">
                   Deliver To This Address
                 </button>
@@ -286,6 +262,7 @@
           <!-- Checkout Customer Address Right ends -->
         </form>
       </div>
+      @endAuth
       <!-- Checkout Customer Address Ends -->
   
       <!-- Checkout Payment Starts -->
@@ -302,55 +279,23 @@
                 <div class="custom-control custom-radio">
                   <input type="radio" id="customColorRadio1" name="paymentOptions" class="custom-control-input" checked />
                   <label class="custom-control-label" for="customColorRadio1">
-                    US Unlocked Debit Card 12XX XXXX XXXX 0000
+                    Make payment with PayPal
                   </label>
                 </div>
                 <div class="customer-cvv mt-1">
                   <div class="form-inline">
-                    <label class="mb-50" for="card-holder-cvv">Enter CVV:</label>
-                    <input
-                      type="password"
-                      class="form-control ml-sm-75 ml-0 mb-50 input-cvv"
-                      name="input-cvv"
-                      id="card-holder-cvv"
-                    />
-                    <button type="button" class="btn btn-primary btn-cvv ml-0 ml-sm-1 mb-50">Continue</button>
+                    <a href="{{ route('make.payment') }}" class="btn btn-primary btn-block"><i class="fa fa-paypal"></i> PayPal</a>
                   </div>
                 </div>
-                <hr class="my-2" />
+                {{-- <hr class="my-2" />
                 <ul class="other-payment-options list-unstyled">
-                  <li class="py-50">
-                    <div class="custom-control custom-radio">
-                      <input type="radio" id="customColorRadio2" name="paymentOptions" class="custom-control-input" />
-                      <label class="custom-control-label" for="customColorRadio2"> Credit / Debit / ATM Card </label>
-                    </div>
-                  </li>
-                  <li class="py-50">
-                    <div class="custom-control custom-radio">
-                      <input type="radio" id="customColorRadio3" name="paymentOptions" class="custom-control-input" />
-                      <label class="custom-control-label" for="customColorRadio3"> Net Banking </label>
-                    </div>
-                  </li>
-                  <li class="py-50">
-                    <div class="custom-control custom-radio">
-                      <input type="radio" id="customColorRadio4" name="paymentOptions" class="custom-control-input" />
-                      <label class="custom-control-label" for="customColorRadio4"> EMI (Easy Installment) </label>
-                    </div>
-                  </li>
                   <li class="py-50">
                     <div class="custom-control custom-radio">
                       <input type="radio" id="customColorRadio5" name="paymentOptions" class="custom-control-input" />
                       <label class="custom-control-label" for="customColorRadio5"> Cash On Delivery </label>
                     </div>
                   </li>
-                </ul>
-                <hr class="my-2" />
-                <div class="gift-card mb-25">
-                  <p class="card-text">
-                    <i data-feather="plus-circle" class="mr-50 font-medium-5"></i>
-                    <span class="align-middle">Add Gift Card</span>
-                  </p>
-                </div>
+                </ul> --}}
               </div>
             </div>
           </div>
@@ -362,9 +307,9 @@
               <div class="card-body">
                 <ul class="list-unstyled price-details">
                   <li class="price-detail">
-                    <div class="details-title">Price of 3 items</div>
+                    <div class="details-title">Price of {{ Cart::getContent()->count() }} items</div>
                     <div class="detail-amt">
-                      <strong>$699.30</strong>
+                      <strong>{{ Cart::getSubtotal() }} DH</strong>
                     </div>
                   </li>
                   <li class="price-detail">
@@ -376,7 +321,7 @@
                 <ul class="list-unstyled price-details">
                   <li class="price-detail">
                     <div class="details-title">Amount Payable</div>
-                    <div class="detail-amt font-weight-bolder">$699.30</div>
+                    <div class="detail-amt font-weight-bolder">{{ Cart::getSubtotal() }} DH</div>
                   </li>
                 </ul>
               </div>

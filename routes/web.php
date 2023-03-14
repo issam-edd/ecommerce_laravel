@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,13 @@ Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name
 Route::get('/add/cart/{product}', [App\Http\Controllers\CartController::class, 'addProductToCart'])->name('add.cart');
 Route::put('/update/cart/{product}', [App\Http\Controllers\CartController::class, 'updateProductOnCart'])->name('update.cart');
 Route::delete('/remove/{product}/cart', [App\Http\Controllers\CartController::class, 'removeProductFromCart'])->name('remove.cart');
+
+//payment routes
+Route::get('/handle-payment', [App\Http\Controllers\PaypalPaymentController::class, 'handlePayment'])->name('make.payment');
+Route::get('/cancel-payment', [App\Http\Controllers\PaypalPaymentController::class, 'paymentCancel'])->name('cancel.payment');
+Route::get('/payment-succes', [App\Http\Controllers\PaypalPaymentController::class, 'paymentSuccess'])->name('success.payment');
+
+//user routes
+Route::middleware(['auth'])->group(function () {
+    Route::post('user/{user}', [UserController::class, 'update'])->name('user.update');
+});
