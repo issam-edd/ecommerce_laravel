@@ -59,6 +59,13 @@ class HomeController extends Controller
             "categories" => Category::has("products")->get(),
         ]);
     }
+    public function show(Product $product)
+    {
+        return view('products.show')->with([
+            "product" => $product,
+        ]);
+    }
+    
 
     // public function SearchProduct(Request $request)
     // {

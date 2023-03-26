@@ -35,8 +35,8 @@
     @forelse ($products as $product)
     <div class="card ecommerce-card">
         <div class="item-img text-center">
-            <a href="{{ route('products.show',$product) }}">
-                <img class="img-fluid card-img-top" src="{{ $product->image }}" alt="img-placeholder" />
+            <a href="{{ route('product.show',$product) }}">
+                <img class="img-fluid card-img-top" src="{{ asset($product->image) }}" alt="img-placeholder" />
             </a>
         </div>
         <div class="card-body">
@@ -49,7 +49,7 @@
                 </div>
             </div>
             <h6 class="item-name">
-                <a class="text-body" href="{{ route('products.show',$product) }}">{{ $product->title }} </a>
+                <a class="text-body" href="{{ route('product.show',$product) }}">{{ $product->title }} </a>
             </h6>
             <p class="card-text item-description">
                 {{ $product->description }}
@@ -120,6 +120,9 @@
     </div> --}}
 </section>
 <!-- E-commerce Products Ends -->
+<div class="d-flex justify-content-center pt-1 pb-5">
+    {{$products->links()}}
+</div>
 @endsection
 
 @section('sideBar')

@@ -120,8 +120,9 @@
               </div>
             </div>
             @empty
-            <div>
-                There is no such Items !
+            <div class="content-center center">
+                There is no such Items !<br>
+                <span class="">Return Store:<span> <a class="btn btn-primary" href="{{ route('home') }}">home</a>
             </div>
             @endforelse
             </div>

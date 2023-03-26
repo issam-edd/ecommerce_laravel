@@ -34,7 +34,7 @@ class ActivateYourAccount extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: 'bestmedsys@contact.com',
+            from: 'contact.bestmedsys@gmail.com',
             subject: 'Activate Your Account',
         );
     }

@@ -24,7 +24,7 @@ Route::get('/activate/{code}', [App\Http\Controllers\ActivationController::class
 Route::get('/resend/{email}', [App\Http\Controllers\ActivationController::class, 'resendActivationCode'])->name('code.resend');
 
 //product routes
-Route::resource('/products', 'App\Http\Controllers\ProductController');
+Route::get('/products/{product}', [App\Http\Controllers\HomeController::class, 'show'])->name('product.show');
 Route::get('/products/category/{category}', [App\Http\Controllers\HomeController::class, 'GetProductByCategory'])->name('category.products');
 Route::get('/product/search', [App\Http\Controllers\HomeController::class, 'SearchProduct'])->name('products.search');
 
@@ -42,4 +42,20 @@ Route::get('/payment-succes', [App\Http\Controllers\PaypalPaymentController::cla
 //user routes
 Route::middleware(['auth'])->group(function () {
     Route::post('user/{user}', [UserController::class, 'update'])->name('user.update');
+});
+
+//admin routes
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
+Route::get('/admin/login', [App\Http\Controllers\AdminController::class, 'showAdminLoginForm'])->name('admin.login');
+Route::post('/admin/login', [App\Http\Controllers\AdminController::class, 'adminLogin'])->name('admin.login');
+Route::get('/admin/logout', [App\Http\Controllers\AdminController::class, 'adminLogout'])->name('admin.logout');
+Route::get('/admin/products', [App\Http\Controllers\AdminController::class, 'GetProducts'])->name('admin.prodcuts');
+Route::get('/admin/orders', [App\Http\Controllers\AdminController::class, 'GetOrders'])->name('admin.orders');
+
+//dashboard products routes
+
+Route::group(['middleware' => 'auth:admin', 'prefix' => 'dashboard'], function () {
+    Route::resource('/products', App\Http\Controllers\ProductController::class);
+    Route::resource('/orders', App\Http\Controllers\OrderController::class);
+    Route::resource('/categories', App\Http\Controllers\CategoryController::class);
 });

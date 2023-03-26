@@ -14,14 +14,14 @@
         </button>
     </div>
 @elseif(session('errorLink'))
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
     <strong>{!! session('errorLink') !!}</strong>
     <button type="button" class="close" data-dismiss="alert">
         <span>&times;</span>
     </button>
   </div>
 @elseif(session('info'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
         <strong>{{ session('info') }}</strong>
         <button type="button" class="close" data-dismiss="alert">
             <span>&times;</span>

@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
-use App\Http\Requests\StoreOrderRequest;
-use App\Http\Requests\UpdateOrderRequest;
+use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
@@ -15,7 +14,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.orders.index')->with([
+            "orders" => Order::latest()->paginate(4),
+        ]);
     }
 
     /**
@@ -34,7 +35,7 @@ class OrderController extends Controller
      * @param  \App\Http\Requests\StoreOrderRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreOrderRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -68,9 +69,12 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateOrderRequest $request, Order $order)
+    public function update(Request $request, Order $order)
     {
-        //
+        $order->update([
+            "delivered" => 1
+        ]);
+        return redirect()->back()->withSuccess('Order Updated Successfuly');
     }
 
     /**
@@ -81,6 +85,7 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $order->delete();
+        return redirect()->back()->withSuccess('Order Deleted Successfully');
     }
 }

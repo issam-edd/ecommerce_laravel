@@ -98,7 +98,7 @@
                     <!-- E-commerce Products Ends -->
 
                     <!-- E-commerce Pagination Starts -->
-                    <section id="ecommerce-pagination">
+                    {{-- <section id="ecommerce-pagination">
                         <div class="row">
                             <div class="col-sm-12">
                                 <nav aria-label="Page navigation example">
@@ -116,7 +116,7 @@
                                 </nav>
                             </div>
                         </div>
-                    </section>
+                    </section> --}}
                     <!-- E-commerce Pagination Ends -->
 
                 </div>

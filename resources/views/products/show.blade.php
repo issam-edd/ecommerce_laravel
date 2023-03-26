@@ -22,7 +22,7 @@
                 <div class="row my-2">
                     <div class="col-12 col-md-5 d-flex align-items-center justify-content-center mb-2 mb-md-0">
                         <div class="d-flex align-items-center justify-content-center">
-                            <img src=" {{ $product->image??null }} " class="img-fluid product-img" alt="product image" />
+                            <img src=" {{ asset($product->image)??null }} " class="img-fluid product-img" alt="product image" />
                         </div>
                     </div>
                     <div class="col-12 col-md-7">
@@ -57,9 +57,9 @@
                             <hr />
                             <div class="d-flex flex-column flex-sm-row pt-1">
                                 <button type="submit" class="btn btn-primary btn-cart mr-0 mr-sm-1 mb-1 mb-sm-0">
-                                    {{-- <i data-feather="shopping-cart" class="mr-50"></i> --}}
+                                    <i data-feather="shopping-cart" class="mr-50"></i>
                                     {{-- <span class="add-to-cart">Add to cart</span> --}}
-                                    <span class="btn btn-primary">Add to cart</span>
+                                    <span>Add to cart</span>
                                 </button>
                                 {{-- <a href="javascript:void(0)" class="btn btn-outline-secondary btn-wishlist mr-0 mr-sm-1 mb-1 mb-sm-0">
                                     <i data-feather="heart" class="mr-50"></i>
