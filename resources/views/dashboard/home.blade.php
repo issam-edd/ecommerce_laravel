@@ -3,7 +3,7 @@
 <section id="dashboard-ecommerce">
     <div class="row match-height">
       <!-- Medal Card -->
-      <div class="col-xl-4 col-md-6 col-12">
+      {{-- <div class="col-xl-4 col-md-6 col-12">
         <div class="card card-congratulation-medal">
           <div class="card-body">
             <h5>Congratulations 🎉 John!</h5>
@@ -15,7 +15,7 @@
             <img src="../../../app-assets/images/illustration/badge.svg" class="congratulation-medal" alt="Medal Pic" />
           </div>
         </div>
-      </div>
+      </div> --}}
       <!--/ Medal Card -->
   
       <!-- Statistics Card -->
@@ -104,7 +104,7 @@
           <!--/ Bar Chart - Orders -->
   
           <!-- Line Chart - Profit -->
-          <div class="col-lg-6 col-md-3 col-6">
+          {{-- <div class="col-lg-6 col-md-3 col-6">
             <div class="card card-tiny-line-stats">
               <div class="card-body pb-50">
                 <h6>Profit</h6>
@@ -112,11 +112,11 @@
                 <div id="statistics-profit-chart"></div>
               </div>
             </div>
-          </div>
+          </div> --}}
           <!--/ Line Chart - Profit -->
   
           <!-- Earnings Card -->
-          <div class="col-lg-12 col-md-6 col-12">
+          {{-- <div class="col-lg-12 col-md-6 col-12">
             <div class="card earnings-card">
               <div class="card-body">
                 <div class="row">
@@ -134,13 +134,13 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> --}}
           <!--/ Earnings Card -->
         </div>
       </div>
   
       <!-- Revenue Report Card -->
-      <div class="col-lg-8 col-12">
+      {{-- <div class="col-lg-8 col-12">
         <div class="card card-revenue-budget">
           <div class="row mx-0">
             <div class="col-md-8 col-12 revenue-report-wrapper">
@@ -186,13 +186,13 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
       <!--/ Revenue Report Card -->
     </div>
   
     <div class="row match-height">
       <!-- Company Table Card -->
-      <div class="col-lg-8 col-12">
+      {{-- <div class="col-lg-8 col-12">
         <div class="card card-company-table">
           <div class="card-body p-0">
             <div class="table-responsive">
@@ -478,11 +478,11 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
       <!--/ Company Table Card -->
   
       <!-- Developer Meetup Card -->
-      <div class="col-lg-4 col-md-6 col-12">
+      {{-- <div class="col-lg-4 col-md-6 col-12">
         <div class="card card-developer-meetup">
           <div class="meetup-img-wrapper rounded-top text-center">
             <img src="../../../app-assets/images/illustration/email.svg" alt="Meeting Pic" height="170" />
@@ -580,11 +580,11 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
       <!--/ Developer Meetup Card -->
   
       <!-- Browser States Card -->
-      <div class="col-lg-4 col-md-6 col-12">
+      {{-- <div class="col-lg-4 col-md-6 col-12">
         <div class="card card-browser-states">
           <div class="card-header">
             <div>
@@ -673,7 +673,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
       <!--/ Browser States Card -->
   
       <!-- Goal Overview Card -->
@@ -701,7 +701,7 @@
       <!--/ Goal Overview Card -->
   
       <!-- Transaction Card -->
-      <div class="col-lg-4 col-md-6 col-12">
+      {{-- <div class="col-lg-4 col-md-6 col-12">
         <div class="card card-transaction">
           <div class="card-header">
             <h4 class="card-title">Transactions</h4>
@@ -787,7 +787,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
       <!--/ Transaction Card -->
     </div>
   </section>

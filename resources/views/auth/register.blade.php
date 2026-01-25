@@ -118,7 +118,7 @@
             </a>
           </p>
 
-          <div class="divider my-2">
+          {{-- <div class="divider my-2">
             <div class="divider-text">or</div>
           </div>
 
@@ -135,7 +135,7 @@
             <a href="javascript:void(0)" class="btn btn-github">
               <i data-feather="github"></i>
             </a>
-          </div>
+          </div> --}}
         </div>
       </div>
       <!-- /Register v1 -->

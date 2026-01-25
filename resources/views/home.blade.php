@@ -150,25 +150,25 @@
                             <li>
                                 <div class="custom-control custom-radio">
                                     <input type="radio" id="priceRange1" name="price-range" class="custom-control-input" />
-                                    <label class="custom-control-label" for="priceRange1">&lt;=$10</label>
+                                    <label class="custom-control-label" for="priceRange1">&lt;=10DH</label>
                                 </div>
                             </li>
                             <li>
                                 <div class="custom-control custom-radio">
                                     <input type="radio" id="priceRange2" name="price-range" class="custom-control-input" />
-                                    <label class="custom-control-label" for="priceRange2">$10 - $100</label>
+                                    <label class="custom-control-label" for="priceRange2">10DH - 100DH</label>
                                 </div>
                             </li>
                             <li>
                                 <div class="custom-control custom-radio">
                                     <input type="radio" id="priceARange3" name="price-range" class="custom-control-input" />
-                                    <label class="custom-control-label" for="priceARange3">$100 - $500</label>
+                                    <label class="custom-control-label" for="priceARange3">100DH - 500DH</label>
                                 </div>
                             </li>
                             <li>
                                 <div class="custom-control custom-radio">
                                     <input type="radio" id="priceRange4" name="price-range" class="custom-control-input" />
-                                    <label class="custom-control-label" for="priceRange4">&gt;= $500</label>
+                                    <label class="custom-control-label" for="priceRange4">&gt;=500DH</label>
                                 </div>
                             </li>
                         </ul>
