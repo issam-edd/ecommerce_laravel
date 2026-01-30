@@ -52,28 +52,41 @@ This project simulates a real online store with complete order and payment flow.
 ## 📷 Screenshots
 
 ### Homepage
-![Homepage](screenshots/home.png)
+![Homepage](ecom-website-screenshots/home.png)
 
 ### Product Details
-![Product Details](screenshots/view_product.png)
+![Product Details](ecom-website-screenshots/detail_product.png)
 
 ### Add To Card
-![Add To Card](screenshots/add_to_card.png)
+![Add To Card](ecom-website-screenshots/add_to_card.png)
+
+### Place Order
+![Place Order](ecom-website-screenshots/place_order.png)
+
+### Login/Create Account
+![Login](ecom-website-screenshots/log_in.png)
+![create account](ecom-website-screenshots/create_profile.png)
+
+### Verification Email
+![Verification Email](ecom-website-screenshots/verify_gmail.png)
+
+### Verification Email Button
+![Verification Email Button](ecom-website-screenshots/verify_email_button.png)
+
+### Add Address
+![Add Address](ecom-website-screenshots/add_adress.png)
+
+### PayPal Payment
+![PayPal Payment](ecom-website-screenshots/paypal_payment.png)
+![Signt To Your Pyaple Account](ecom-website-screenshots/signt_to_your_pyaple_account.png)
+![Payment](ecom-website-screenshots/payment.png)
+![Success Payment](ecom-website-screenshots/success_payment.png)
 
 ### Admin Dashboard
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](ecom-website-screenshots/dashboard.png)
 
-### List Categories
-![List Categories](screenshots/list_category.png)
-
-### List Produts
-![List Produts](screenshots/list_product.png)
-
-### List Commands
-![List Commands](screenshots/list_command.png)
-
-### Detail List Commands
-![Detail List Commands](screenshots/detail_list_command.png)
+### OrderS List
+![OrderS List](ecom-website-screenshots/order_list_dashboard.png)
 
 ---
 
